@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/lib/angular.min.js
+//= require angular/lib/sw.js
 
 //= require angular/app.js
 //= require_tree .
