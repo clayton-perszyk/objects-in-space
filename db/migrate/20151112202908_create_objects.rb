@@ -1,6 +1,6 @@
 class CreateObjects < ActiveRecord::Migration
   def change
-    create_table :objects do |t|
+    create_table :nearearthobjects do |t|
       t.string :name
       t.datetime :close_approach_date
       t.integer :close_approach_distance
