@@ -1,5 +1,5 @@
 var app = angular.module("ObjectsInSpace");
 
-app.controller("object",['$scope', function ($scope){
-  
+app.controller("ObjectController",['$scope', function ($scope){
+
 }]);
