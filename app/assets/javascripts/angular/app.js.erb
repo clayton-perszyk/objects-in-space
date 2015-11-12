@@ -1,0 +1,22 @@
+var app = angular.module('ObjectsInSpace',['ngRoute']);
+
+app.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] =
+    $('meta[name=csrf-token]').attr('content');
+}]);
+
+app.config(["$routeProvider", function ($routeProvider){
+  $routeProvider
+    .when("/signup", {
+      templateUrl: "<%= asset_path('angular/partials/signup_form') %>",
+      controller: "UserController"
+    })
+    .when("/login", {
+      templateUrl: "<%= asset_path('angular/partials/login_form') %>",
+      controller: "UserController"
+    })
+    .when("/objects", {
+      templateUrl: "<%= asset_path('angular/partials/object_table') %>",
+      controller: "ObjectController"
+    });
+}]);

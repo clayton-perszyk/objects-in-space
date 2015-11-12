@@ -2,12 +2,27 @@
 <html>
 <head>
   <title>ObjectsInSpace</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
   <link rel="manifest" href="assets/javascripts/angular/manifest.json">
 </head>
 <body ng-app="ObjectsInSpace">
+  <nav>
+   <div class="nav-wrapper">
+     <a href="#!" class="brand-logo">Objects In Space</a>
+     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+     <ul class="right hide-on-med-and-down">
+       <li><a href="#">Login</a></li>
+       <li><a href="#">Signup</a></li>
+     </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="#">Login</a></li>
+       <li><a href="#">Signup</a></li>
+     </ul>
+   </div>
+ </nav>
   <div ng-view>
   </div>
 </body>
