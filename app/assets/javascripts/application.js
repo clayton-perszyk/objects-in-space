@@ -15,4 +15,5 @@
 //= require angular/lib/angular.min.js
 
 //= require angular/app.js
+//= require materialize.min.js
 //= require_tree .
