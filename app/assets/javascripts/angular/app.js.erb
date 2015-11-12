@@ -6,9 +6,13 @@ app.config(['$httpProvider', function($httpProvider) {
 }]);
 
 app.config(["$routeProvider", function ($routeProvider){
-  $routeProvider.when(
-    "/signup", {
+  $routeProvider
+    .when("/signup", {
       templateUrl: "<%= asset_path('angular/partials/signup_form') %>",
+      controller: "UserController"
+    })
+    .when("/login", {
+      templateUrl: "<%= asset_path('angular/partials/login_form') %>",
       controller: "UserController"
     });
 }]);
