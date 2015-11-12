@@ -1,55 +1,60 @@
 <div class="container">
   <table class='highlight'>
     <thead>
-      <th>
-        Name
-      </th>
-      <th>
-        Speed (KM/S)
-      </th>
-      <th>
-        Size 
-      </th>
-      <th>
-        Distance (K)
-      </th>
-      <th>
-        CAD
-      </th>
+      <tr>
+        <th>
+          <span ng-click='orderBy("name")'>
+            Name
+            <i class="material-icons tiny" ng-show='order === "name"'>keyboard_arrow_down</i>
+            <i class="material-icons tiny" ng-show='order === "-name"'>keyboard_arrow_up</i>
+          </span>
+        </th>
+        <th>
+          <span ng-click='orderBy("velocity")'>
+            Speed (KM/S)
+            <i class="material-icons tiny" ng-show='order === "velocity"'>keyboard_arrow_down</i>
+            <i class="material-icons tiny" ng-show='order === "-velocity"'>keyboard_arrow_up</i>
+          </span>
+        </th>
+        <th>
+          <span ng-click='orderBy("size")'>
+            Size
+            <i class="material-icons tiny" ng-show='order === "size"'>keyboard_arrow_down</i>
+            <i class="material-icons tiny" ng-show='order === "-size"'>keyboard_arrow_up</i>
+          </span>
+        </th>
+        <th>
+          <span ng-click='orderBy("close_approach_distance")'>
+            Distance (K)
+            <i class="material-icons tiny" ng-show='order === "close_approach_distance"'>keyboard_arrow_down</i>
+            <i class="material-icons tiny" ng-show='order === "-close_approach_distance"'>keyboard_arrow_up</i>
+          </span>
+        </th>
+        <th>
+          <span ng-click='orderBy("close_approach_date")'>
+            CAD
+            <i class="material-icons tiny" ng-show='order === "close_approach_date"'>keyboard_arrow_down</i>
+            <i class="material-icons tiny" ng-show='order === "-close_approach_date"'>keyboard_arrow_up</i>
+          </span>
+        </th>
+      </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr ng-repeat="neo in objects | orderBy: order">
         <td>
-          1999 VF22
+          {{neo.name}}
         </td>
         <td>
-          28.0780565472
+          {{neo.velocity}}
         </td>
         <td>
-          0.2111324448
+          {{neo.size}}
         </td>
         <td>
-          14097968
+          {{neo.close_approach_distance}}
         </td>
         <td>
-          2016/02/18
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2010 PK9
-        </td>
-        <td>
-          30.942357826
-        </td>
-        <td>
-          0.1160259082
-        </td>
-        <td>
-          6659408.5
-        </td>
-        <td>
-          1990/06/01
+          {{neo.close_approach_date}}
         </td>
       </tr>
     </tbody>
