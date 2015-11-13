@@ -1,30 +1,30 @@
-class NearEarthObjectsController < ApplicationController
-  before_action :set_nearerathobject, only: [:show, :update, :destroy]
+class NearearthobjectsController < ApplicationController
+  before_action :set_nearearthobject, only: [:show, :update, :destroy]
 
   def index
-    @nearreathobjects = Nearearthobject.all
-    render json: @nearreathobjects, status: :ok
+    @nearearthobjects = Nearearthobject.all
+    render json: @nearearthobjects, status: :ok
   end
 
   def show
-    render json: @nearreathobject, status: :ok
+    render json: @nearearthobject, status: :ok
   end
 
   def create
-    @nearreathobject = Nearearthobject.new(nearreathobject_params)
+    @nearearthobject = Nearearthobject.new(nearreathobject_params)
 
-    if @nearreathobject.save
-      render json: @nearreathobject, status: :created
+    if @nearearthobject.save
+      render json: @nearearthobject, status: :created
     else
-      render json: @nearreathobject.errors, status: :unprocessable_entity
+      render json: @nearearthobject.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    if @nearreathobject.update(nearreathobject_params)
-      renser json: @nearreathobject, status: :ok
+    if @nearearthobject.update(nearreathobject_params)
+      renser json: @nearearthobject, status: :ok
     else
-      render json: @nearreathobject.errors, status: :unprocessable_entity
+      render json: @nearearthobject.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,11 +35,11 @@ class NearEarthObjectsController < ApplicationController
 
   private
 
-  def set_nearerathobject
-    @nearreathobject = Nearearthobject.find(params[:id])
+  def set_nearearthobject
+    @nearearthobject = Nearearthobject.find(params[:id])
   end
 
   def nearreathobject_params
-    params.require(:nearreathobject).permit(:name, :close_approach_date, :close_approach_distance, :velocity, :size)
+    params.require(:nearearthobject).permit(:name, :close_approach_date, :close_approach_distance, :velocity, :size)
   end
 end
