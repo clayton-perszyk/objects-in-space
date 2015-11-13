@@ -42,7 +42,7 @@
     <tbody>
       <tr ng-repeat="neo in objects | orderBy: order">
         <td>
-          {{neo.name}}
+          <a href="#/objects/{{neo.id}}">{{neo.name}}</a>    
         </td>
         <td>
           {{neo.velocity}}
