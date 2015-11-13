@@ -18,5 +18,9 @@ app.config(["$routeProvider", function ($routeProvider){
     .when("/objects", {
       templateUrl: "<%= asset_path('angular/partials/object_table') %>",
       controller: "ObjectController"
+    })
+    .when("/objects/:id", {
+      templateUrl: "<%= asset_path('angular/partials/show_object') %>",
+      controller: "ShowObjectController"
     });
 }]);
