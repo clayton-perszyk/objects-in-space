@@ -1,10 +1,10 @@
 (function() {
   'use strict';
   angular.module('ObjectsInSpace')
-    .filter('catagoryFilter', sizeFilter);
+    .filter('catagoryFilter', catagoryFilter);
 
 
-  function sizeFilter() {
+  function catagoryFilter() {
      return function(items, types) {
        var filtered = [];
        var catagories = _.keys(types);
@@ -20,10 +20,3 @@
    }
 
 })();
-
-//     else if (items[i].sizeCatagory === 'big' && types.big) {
-//      filtered.push(items[i]);
-//    } else if (items[i].sizeCatagory === 'superbig' && types.superbig) {
-//      filtered.push(items[i]);
-//    }
-//  }
