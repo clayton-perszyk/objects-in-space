@@ -1,0 +1,22 @@
+(function() {
+  'use strict';
+
+  angular.module('ObjectsInSpace')
+    .config(NEOroutes);
+
+  NEOroutes.$inject = ['$routeProvider'];
+  function NEOroutes($routeProvider) {
+    $routeProvider
+      .when("/NEO", {
+        templateUrl: "<%= asset_path('angular/NEO/NEOTable.partial') %>",
+        controller: "NEOController",
+        controllerAs: "vm"
+      })
+      .when("/NEO/:id", {
+        templateUrl: "<%= asset_path('angular/NEO/NEOShow.partial') %>",
+        controller: "NEOShowController",
+        controllerAs: 'vm'
+      });
+  }
+
+})();

@@ -1,0 +1,74 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col s2 left">
+      <h5>Size</h5>
+      <input type="checkbox" id="smallSize" ng-model="vm.sizeCategories.small"/>
+      <label for="smallSize">Small</label>
+      <input type="checkbox" id="bigSize" ng-model='vm.sizeCategories.big' />
+      <label for="bigSize">Big</label>
+      <input type="checkbox" id="reallyBigSize" ng-model='vm.sizeCategories.superbig'/>
+      <label for="reallyBigSize">SUPER BIG</label>
+    </div>
+    <table class='highlight col s10'>
+      <thead>
+        <tr>
+          <th>
+            <span ng-click='vm.orderBy("name")'>
+              Name
+              <i class="material-icons tiny" ng-show='vm.order === "name"'>keyboard_arrow_down</i>
+              <i class="material-icons tiny" ng-show='vm.order === "-name"'>keyboard_arrow_up</i>
+            </span>
+          </th>
+          <th>
+            <span ng-click='vm.orderBy("velocity")'>
+              Speed (KM/S)
+              <i class="material-icons tiny" ng-show='vm.order === "velocity"'>keyboard_arrow_down</i>
+              <i class="material-icons tiny" ng-show='vm.order === "-velocity"'>keyboard_arrow_up</i>
+            </span>
+          </th>
+          <th>
+            <span ng-click='vm.orderBy("size")'>
+              Size
+              <i class="material-icons tiny" ng-show='vm.order === "size"'>keyboard_arrow_down</i>
+              <i class="material-icons tiny" ng-show='vm.order === "-size"'>keyboard_arrow_up</i>
+            </span>
+          </th>
+          <th>
+            <span ng-click='vm.orderBy("close_approach_distance")'>
+              Distance (K)
+              <i class="material-icons tiny" ng-show='vm.order === "close_approach_distance"'>keyboard_arrow_down</i>
+              <i class="material-icons tiny" ng-show='vm.order === "-close_approach_distance"'>keyboard_arrow_up</i>
+            </span>
+          </th>
+          <th>
+            <span ng-click='vm.orderBy("close_approach_date")'>
+              CAD
+              <i class="material-icons tiny" ng-show='vm.order === "close_approach_date"'>keyboard_arrow_down</i>
+              <i class="material-icons tiny" ng-show='vm.order === "-close_approach_date"'>keyboard_arrow_up</i>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.sizeCategories">
+          <td>
+            <a href="#/objects/{{neo.id}}">{{neo.name}}</a>
+          </td>
+          <td>
+            {{neo.velocity}}
+          </td>
+          <td>
+            {{neo.size}}
+          </td>
+          <td>
+            {{neo.close_approach_distance}}
+          </td>
+          <td>
+            {{neo.close_approach_date}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
