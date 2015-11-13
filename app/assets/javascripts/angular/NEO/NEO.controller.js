@@ -9,16 +9,32 @@
   function NEOController($http){
     var vm = this;
 
-    vm.sizeCategories = {
-      small: true,
-      big: true,
-      superbig: true
+    vm.catagories = {
+      size: {
+        person: false,
+        car: false,
+        house: false,
+        football: false,
+        placeholder1: false,
+        placeholder2: false,
+        placeholder3: false,
+        placeholder4: false,
+        placeholder5: false,
+        placeholder6: false,
+        lake: false,
+        todamnbig: false,
+      },
+      distance: {
+        close: false,
+        notsoclose: false,
+        offinspacesomewhere: false,
+      }
     };
 
     $http.get('/nearearthobjects').then(function(data){
       vm.objects = data.data;
-      vm.objects[0].sizeCatagory = 'big';
-      vm.objects[1].sizeCatagory = 'small';
+      vm.objects[0].sizeCatagory = 'car';
+      vm.objects[1].sizeCatagory = 'person';
     });
 
     vm.orderBy = function(newOrder) {
