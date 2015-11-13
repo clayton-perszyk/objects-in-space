@@ -5,15 +5,16 @@
 
 
   function catagoryFilter() {
+
      return function(items, types) {
        var filtered = [];
        var catagories = _.keys(types);
-       for (var i in items) {
-         catagories.forEach(function(catagory) {
-           if(items[i].sizeCatagory === catagory && types[catagory]) {
-             filtered.push(items[i]);
+       for (var i = 0; i < items.length; i++) {
+         for (var j = 0; j < items.length; j++) {
+           if(items[i].sizeCatagory === catagories[j] && types[catagories[j]]) {
+            filtered.push(items[i]);
            }
-         });
+         }
        }
        return filtered;
      };

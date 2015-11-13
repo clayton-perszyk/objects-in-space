@@ -1,0 +1,19 @@
+(function() {
+
+  angular.module('ObjectsInSpace')
+    .config(userRoutes);
+
+  userRoutes.$inject = ['$routeProvider'];
+
+  function userRoutes($routeProvider){
+    $routeProvider
+      .when("/signup", {
+        templateUrl: "<%= asset_path('angular/users/signup_form.partial') %>",
+        controller: "UserController"
+      })
+      .when("/login", {
+        templateUrl: "<%= asset_path('angular/users/login_form.partial') %>",
+        controller: "UserController"
+      });
+  }
+})();
