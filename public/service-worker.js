@@ -1,13 +1,5 @@
 (function () {
   'use strict';
-  function testing() {
-    var request = new Request('http://localhost:3000/nearearthobjects/1');
-
-  }
-
-  function parseJSON(response) {
-    return response.json();
-  }
 
   self.addEventListener('push', function(event) {
 
