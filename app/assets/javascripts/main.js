@@ -30,10 +30,14 @@ $(document).ready(function() {
   }
 
   function sendSubscriptionToServer(subscription) {
-    // TODO: Send the subscription.endpoint
-    // to your server and save it to send a
-    // push message at a later date
-    //
+    $.ajax({
+        type: "POST",
+        url: "/subscribed_users",
+        data: {endpoint: subscription.endpoint},
+        success: function(data){
+          console.log("Post added ", data);
+        }
+    });
     // For compatibly of Chrome 43, get the endpoint via
     // endpointWorkaround(subscription)
     console.log('TODO: Implement sendSubscriptionToServer()');
@@ -65,7 +69,6 @@ $(document).ready(function() {
       '" --header Content-Type:"application/json" ' + GCM_ENDPOINT +
       ' -d "{\\"registration_ids\\":[\\"' + subscriptionId + '\\"]}"';
 
-    console.log(curlCommand);
     curlCommandDiv.textContent = curlCommand;
   }
 
@@ -188,12 +191,10 @@ $(document).ready(function() {
       // Do we already have a push message subscription?
       serviceWorkerRegistration.pushManager.getSubscription()
         .then(function(subscription) {
-          console.log(subscription);
           // Enable any UI which subscribes / unsubscribes from
           // push messages.
           var pushButton = document.querySelector('.js-push-button');
           pushButton.disabled = false;
-          console.log(pushButton);
 
           if (!subscription) {
             // We aren’t subscribed to push, so set UI
