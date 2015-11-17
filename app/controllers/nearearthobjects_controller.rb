@@ -2,6 +2,11 @@ class NearearthobjectsController < ApplicationController
   before_action :set_nearearthobject, only: [:show, :update, :destroy]
   validates :name, presence: true uniqueness: true
 
+  def todays_neos
+    @neos = Nearearthobject.where(close_approach_date: DateTime.now.strftime("%Y-%m-%d"))
+    render json: @neos, status: :ok
+  end
+
   def index
     @nearearthobjects = Nearearthobject.all
     render json: @nearearthobjects, status: :ok
@@ -13,7 +18,6 @@ class NearearthobjectsController < ApplicationController
 
   def create
     @nearearthobject = Nearearthobject.new(nearreathobject_params)
-    # puts @nearearthobject
     if @nearearthobject.save
       render json: @nearearthobject, status: :created
     else
