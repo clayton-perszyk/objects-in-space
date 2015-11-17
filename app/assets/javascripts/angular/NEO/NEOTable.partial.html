@@ -51,7 +51,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.catagories.size:'sizeCatagory' | catagoryFilter: vm.catagories.distance:'distanceCatagory'">
+        <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.catagories.size:'sizeCatagory' | catagoryFilter: vm.catagories.distance:'distanceCatagory' | dateFilter: vm.catagories.date">
           <td>
             <a href="#/objects/{{neo.id}}">{{neo.name}}</a>
           </td>
