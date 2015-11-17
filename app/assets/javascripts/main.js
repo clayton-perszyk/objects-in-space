@@ -33,7 +33,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         url: "/subscribed_users",
-        data: {endpoint: subscription.endpoint},
+        data: {endpoint: subscription.endpoint.split('/')[5]},
         success: function(data){
           console.log("Post added ", data);
         }
