@@ -1,6 +1,6 @@
 class NearearthobjectsController < ApplicationController
   before_action :set_nearearthobject, only: [:show, :update, :destroy]
-  validates :name, presence: true uniqueness: true
+  
 
   def todays_neos
     @neos = Nearearthobject.where(close_approach_date: DateTime.now.strftime("%Y-%m-%d"))
