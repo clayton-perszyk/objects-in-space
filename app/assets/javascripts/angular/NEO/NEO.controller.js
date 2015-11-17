@@ -16,6 +16,7 @@
     };
 
     $http.get('/nearearthobjects').then(function(data){
+      console.log(data.data);
       vm.objects = data.data;
       vm.objects[0].sizeCatagory = 'big';
       vm.objects[1].sizeCatagory = 'small';
