@@ -2,13 +2,13 @@
 <div class="container">
   <div class="row">
     <div class="col s2 left">
-      <h5>Size</h5>
-      <input type="checkbox" id="smallSize" ng-model="vm.sizeCategories.small"/>
-      <label for="smallSize">Small</label>
-      <input type="checkbox" id="bigSize" ng-model='vm.sizeCategories.big' />
-      <label for="bigSize">Big</label>
-      <input type="checkbox" id="reallyBigSize" ng-model='vm.sizeCategories.superbig'/>
-      <label for="reallyBigSize">SUPER BIG</label>
+      <div ng-repeat="(catagory, types) in vm.catagories">
+        <h5>{{catagory}}</h5>
+        <div ng-repeat="(key, value) in types">
+          <input type="checkbox" id="{{key}}" ng-model="vm.catagories[catagory][key]"/>
+          <label for="{{key}}">{{key}}</label>
+        </div>
+      </div>
     </div>
     <table class='highlight col s10'>
       <thead>
@@ -51,7 +51,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.sizeCategories">
+        <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.catagories.size">
           <td>
             <a href="#/objects/{{neo.id}}">{{neo.name}}</a>
           </td>
