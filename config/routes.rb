@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'statics#index'
-  resources :users, only: [:index, :show, :create, :update, :destroy]
+
+  get '/todays-neos' => "nearearthobjects#todays_neos" 
+  resources :subscribed_users, only: [:index, :show, :create, :update, :destroy]
   resources :nearearthobjects, only: [:index, :show, :create, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
