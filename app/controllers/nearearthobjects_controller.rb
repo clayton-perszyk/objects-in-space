@@ -1,6 +1,11 @@
 class NearearthobjectsController < ApplicationController
   before_action :set_nearearthobject, only: [:show, :update, :destroy]
 
+  def todays_neos
+    @neos = Nearearthobject.where(close_approach_date: "2016-02-18 00:00:00")
+    render json: @neos, status: :ok
+  end
+
   def index
     @nearearthobjects = Nearearthobject.all
     render json: @nearearthobjects, status: :ok
