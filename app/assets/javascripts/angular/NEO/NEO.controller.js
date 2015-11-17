@@ -32,6 +32,7 @@
     };
 
     $http.get('/nearearthobjects').then(function(data){
+      console.log(data.data);
       vm.objects = data.data;
       vm.objects[0].sizeCatagory = 'car';
       vm.objects[1].sizeCatagory = 'person';

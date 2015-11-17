@@ -12,7 +12,7 @@ class NearearthobjectsController < ApplicationController
 
   def create
     @nearearthobject = Nearearthobject.new(nearreathobject_params)
-
+    # puts @nearearthobject
     if @nearearthobject.save
       render json: @nearearthobject, status: :created
     else
@@ -40,6 +40,22 @@ class NearearthobjectsController < ApplicationController
   end
 
   def nearreathobject_params
-    params.require(:nearearthobject).permit(:name, :close_approach_date, :close_approach_distance, :velocity, :size)
+    # puts params['nearearthobject']
+    # puts '*' * 30
+    # json = params.require(:nearearthobject)
+    # JSON.parse(json).permit(:name, :close_approach_date, :close_approach_distance, :velocity, :size, :sizeCatagory, :pha, :distanceCatagory);
+    # # return {
+    # #   name: JSON.parse(json).permit(:name),
+    # #   close_approach_date: JSON.parse(json).permit(:close_approach_date)
+    # #   close_approach_date: JSON.parse(json).permit(:close_approach_date)
+    # #   close_approach_distance: JSON.parse(json).permit(:close_approach_distance)
+    # #   velocity: JSON.parse(json).permit(:velocity)
+    # #   size: JSON.parse(json).permit(:size)
+    # #   sizeCatagory: JSON.parse(json).permit(:sizeCatagory)
+    # #   pha: JSON.parse(json).permit(:pha)
+    # #   distanceCatagory: JSON.parse(json).permit(:distanceCatagory)
+    # #
+    # # }
+    params.require(:nearearthobject).permit(:name, :close_approach_date, :close_approach_distance, :velocity, :size, :sizeCatagory, :pha, :distanceCatagory)
   end
 end
