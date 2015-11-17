@@ -4,11 +4,10 @@
   var app = angular.module("ObjectsInSpace")
     .controller('NEOController', NEOController);
 
-  NEOController.$inject = ['$http'];
+  NEOController.$inject = ['$http', '$routeParams'];
 
-  function NEOController($http){
+  function NEOController($http, $routeParams){
     var vm = this;
-
     vm.catagories = {
       size: {
         'person': false,
@@ -24,14 +23,20 @@
         '200 - 400': false,
         '400 - 600': false,
         '600+': false
+      },
+      date: {
+        'past': false,
+        'today': false,
+        'future': false
       }
     };
 
+    if($routeParams.q === 'filtered') {
+      vm.catagories.date.today = true;
+    }
+
     $http.get('/nearearthobjects').then(function(data){
-      console.log(data.data);
       vm.objects = data.data;
-      vm.objects[0].sizeCatagory = 'car';
-      vm.objects[1].sizeCatagory = 'person';
     });
 
     vm.orderBy = function(newOrder) {
