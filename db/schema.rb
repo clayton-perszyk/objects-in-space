@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116225553) do
+ActiveRecord::Schema.define(version: 20151117194808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "nearearthobjects", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "close_approach_date"
-    t.integer  "close_approach_distance"
-    t.integer  "velocity"
-    t.integer  "size"
-    t.string   "sizeCatagory"
-    t.boolean  "pha"
-    t.string   "distanceCatagory"
+    t.string  "name"
+    t.string  "close_approach_date"
+    t.integer "close_approach_distance"
+    t.integer "velocity"
+    t.integer "size"
+    t.string  "sizeCatagory"
+    t.boolean "pha"
+    t.string  "distanceCatagory"
   end
 
   create_table "users", force: :cascade do |t|

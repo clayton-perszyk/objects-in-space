@@ -15,7 +15,8 @@ result = Net::HTTP.get(url)
   result = Net::HTTP.get(url)
   JSON.parse(result)["near_earth_objects"].each do |neoArray|
     neoObject = {}
-    neoObject['close_approach_date'] = neoArray[0];
+    puts neoArray[0].to_s.split(' ')
+    neoObject['close_approach_date'] = neoArray[0].to_s.split(' ')[0];
     neoArray[1].each do |neo|
       neoObject['name'] = neo["name"]
       neoObject['close_approach_distance'] = neo["close_approach_data"][0]["miss_distance"]["lunar"].to_i;

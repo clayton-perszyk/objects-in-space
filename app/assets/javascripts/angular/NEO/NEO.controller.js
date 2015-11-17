@@ -11,23 +11,19 @@
 
     vm.catagories = {
       size: {
-        person: false,
-        car: false,
-        house: false,
-        football: false,
-        placeholder1: false,
-        placeholder2: false,
-        placeholder3: false,
-        placeholder4: false,
-        placeholder5: false,
-        placeholder6: false,
-        lake: false,
-        todamnbig: false,
+        'person': false,
+        'house': false,
+        'football field': false,
+        'skyscraper': false,
+        'city': false,
+        'lake': false,
+        'to damn big': false,
       },
       distance: {
-        close: false,
-        notsoclose: false,
-        offinspacesomewhere: false,
+        '0 - 200': false,
+        '200 - 400': false,
+        '400 - 600': false,
+        '600+': false
       }
     };
 
