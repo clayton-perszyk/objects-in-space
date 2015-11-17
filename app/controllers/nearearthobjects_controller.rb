@@ -1,5 +1,6 @@
 class NearearthobjectsController < ApplicationController
   before_action :set_nearearthobject, only: [:show, :update, :destroy]
+  validates :name, presence: true uniqueness: true
 
   def index
     @nearearthobjects = Nearearthobject.all
