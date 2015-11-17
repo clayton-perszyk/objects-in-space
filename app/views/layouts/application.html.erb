@@ -3,6 +3,7 @@
 <head>
   <title>ObjectsInSpace</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Squada+One|Allerta' rel='stylesheet' type='text/css'>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -13,49 +14,52 @@
 </head>
 <body ng-app="ObjectsInSpace">
   <nav>
-   <div class="nav-wrapper">
-     <a href="#!" class="brand-logo">Objects In Space</a>
-     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-     <ul class="right hide-on-med-and-down">
-       <li><a href="#">Login</a></li>
-       <li><a href="#">Signup</a></li>
-     </ul>
-     <ul class="side-nav" id="mobile-demo">
-       <li><a href="#">Login</a></li>
-       <li><a href="#">Signup</a></li>
-     </ul>
-   </div>
- </nav>
- <h1>Push Messaging &amp; Notifications</h1>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Objects In Space</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse">
+        <i class="material-icons" >menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="container content-wrapper z-depth-5">
+    <h1>Push Messaging &amp; Notifications</h1>
 
- <p>Available in <a href="https://www.chromestatus.com/feature/5416033485586432">Chrome 42+</a> &amp; <a href="https://www.chromestatus.com/feature/5480344312610816">Chrome 42+</a></p>
+    <p>Available in <a href="https://www.chromestatus.com/feature/5416033485586432">Chrome 42+</a> &amp; <a href="https://www.chromestatus.com/feature/5480344312610816">Chrome 42+</a></p>
 
- <p>To use this sample please do the following:</p>
+    <p>To use this sample please do the following:</p>
 
- <ol>
-   <li>Create a project in the <a href="https://console.developers.google.com"  target="_blank">Google Developer Console</a>.</li>
-   <li>Under APIs enable Google Cloud Messaging for Android and Google Cloud Messaging for Chrome.</li>
-   <li>Under Credentials, create a new key and select Server key as the type.</li>
-   <li>Create a copy of [config.sample.js](config.sample.js) called config.js</li>
-   <li>Create a copy of [manifest.sample.json](manifest.sample.json) called manifest.json</li>
-   <li>Replace "&lt;Your Public API Key ...&gt;" in your new `config.js` file with your own API key from the Google Developer Console project.</li>
-   <li>Replace "&lt;Your Project Number ...&gt;" in your new `manifest.json` with your own project number from the Google Developer Console project.</li>
- </ol>
+    <ol>
+     <li>Create a project in the <a href="https://console.developers.google.com"  target="_blank">Google Developer Console</a>.</li>
+     <li>Under APIs enable Google Cloud Messaging for Android and Google Cloud Messaging for Chrome.</li>
+     <li>Under Credentials, create a new key and select Server key as the type.</li>
+     <li>Create a copy of [config.sample.js](config.sample.js) called config.js</li>
+     <li>Create a copy of [manifest.sample.json](manifest.sample.json) called manifest.json</li>
+     <li>Replace "&lt;Your Public API Key ...&gt;" in your new `config.js` file with your own API key from the Google Developer Console project.</li>
+     <li>Replace "&lt;Your Project Number ...&gt;" in your new `manifest.json` with your own project number from the Google Developer Console project.</li>
+    </ol>
 
+    <p>
+       <button class="js-push-button" disabled>
+         Enable Push Messages
+       </button>
+    </p>
 
- <p>
-     <button class="js-push-button" disabled>
-       Enable Push Messages
-     </button>
- </p>
+    <br />
+    <br />
 
- <br />
- <br />
-
- <h2>cURL Command to Send Push</h2>
- <div class="js-curl-command">
- </div>
-  <div ng-view>
-  </div>
+    <h2>cURL Command to Send Push</h2>
+    <div class="js-curl-command">
+    </div>
+    <div ng-view>
+    </div>
+  </section>
 </body>
 </html>
