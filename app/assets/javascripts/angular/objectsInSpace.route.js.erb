@@ -1,0 +1,15 @@
+(function() {
+  'use strict';
+
+  angular.module('ObjectsInSpace')
+    .config(homeRoutes);
+
+  homeRoutes.$inject = ['$routeProvider'];
+  function homeRoutes($routeProvider) {
+    $routeProvider
+      .when("/", {
+        templateUrl: "<%= asset_path('angular/objectsInSpace.index.html') %>",
+      });
+  }
+
+})();

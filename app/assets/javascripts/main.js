@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     // This is just for demo purposes / an easy to test by
     // generating the appropriate cURL command
-    showCurlCommand(mergedEndpoint);
+    // showCurlCommand(mergedEndpoint);
   }
 
   // NOTE: This code is only suitable for GCM endpoints,
