@@ -35,41 +35,11 @@ $(document).ready(function() {
         url: "/subscribed_users",
         data: {endpoint: subscription.endpoint.split('/')[5]},
         success: function(data){
-          console.log("Post added ", data);
         }
     });
     // For compatibly of Chrome 43, get the endpoint via
     // endpointWorkaround(subscription)
-    console.log('TODO: Implement sendSubscriptionToServer()');
-
     var mergedEndpoint = endpointWorkaround(subscription);
-
-    // This is just for demo purposes / an easy to test by
-    // generating the appropriate cURL command
-    showCurlCommand(mergedEndpoint);
-  }
-
-  // NOTE: This code is only suitable for GCM endpoints,
-  // When another browser has a working version, alter
-  // this to send a PUSH request directly to the endpoint
-  function showCurlCommand(mergedEndpoint) {
-    // The curl command to trigger a push message straight from GCM
-    if (mergedEndpoint.indexOf(GCM_ENDPOINT) !== 0) {
-      console.log('This browser isn\'t currently ' +
-        'supported for this demo');
-      window.Demo.debug.log('This browser isn\'t currently ' +
-        'supported for this demo');
-      return;
-    }
-
-    var endpointSections = mergedEndpoint.split('/');
-    var subscriptionId = endpointSections[endpointSections.length - 1];
-
-    var curlCommand = 'curl --header "Authorization: key=' + API_KEY +
-      '" --header Content-Type:"application/json" ' + GCM_ENDPOINT +
-      ' -d "{\\"registration_ids\\":[\\"' + subscriptionId + '\\"]}"';
-
-    curlCommandDiv.textContent = curlCommand;
   }
 
   function unsubscribe() {
@@ -92,29 +62,19 @@ $(document).ready(function() {
             return;
           }
 
-          // TODO: Make a request to your server to remove
-          // the users data from your data store so you
-          // don't attempt to send them push messages anymore
-
           // We have a subcription, so call unsubscribe on it
           pushSubscription.unsubscribe().then(function(successful) {
             pushButton.disabled = false;
             pushButton.textContent = 'Enable Push Messages';
             isPushEnabled = false;
           }).catch(function(e) {
-            // We failed to unsubscribe, this can lead to
-            // an unusual state, so may be best to remove
-            // the subscription id from your data store and
-            // inform the user that you disabled push
             console.log('Unsubscription error: ', e);
-            window.Demo.debug.log('Unsubscription error: ', e);
             pushButton.disabled = false;
           });
         }).catch(function(e) {
           console.log('Error thrown while unsubscribing from ' +
             'push messaging.', e);
-          window.Demo.debug.log('Error thrown while unsubscribing from ' +
-            'push messaging.', e);
+
         });
     });
   }
@@ -134,9 +94,6 @@ $(document).ready(function() {
           pushButton.textContent = 'Disable Push Messages';
           pushButton.disabled = false;
 
-          // TODO: Send the subscription subscription.endpoint
-          // to your server and save it to send a push message
-          // at a later date
           return sendSubscriptionToServer(subscription);
         })
         .catch(function(e) {
@@ -146,14 +103,12 @@ $(document).ready(function() {
             // to manually change the notification permission to
             // subscribe to push messages
             console.log('Permission for Notifications was denied');
-            window.Demo.debug.log('Permission for Notifications was denied');
             pushButton.disabled = true;
           } else {
             // A problem occurred with the subscription, this can
             // often be down to an issue or lack of the gcm_sender_id
             // and / or gcm_user_visible_only
             console.log('Unable to subscribe to push.', e);
-            window.Demo.debug.log('Unable to subscribe to push.', e);
             pushButton.disabled = false;
             pushButton.textContent = 'Enable Push Messages';
           }
@@ -166,7 +121,6 @@ $(document).ready(function() {
     // Are Notifications supported in the service worker?
     if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
       console.log('Notifications aren\'t supported.');
-      window.Demo.debug.log('Notifications aren\'t supported.');
       return;
     }
 
@@ -175,14 +129,12 @@ $(document).ready(function() {
     // user changes the permission
     if (Notification.permission === 'denied') {
       console.log('The user has blocked notifications.');
-      window.Demo.debug.log('The user has blocked notifications.');
       return;
     }
 
     // Check if push messaging is supported
     if (!('PushManager' in window)) {
       console.log('Push messaging isn\'t supported.');
-      window.Demo.debug.log('Push messaging isn\'t supported.');
       return;
     }
 
@@ -210,10 +162,9 @@ $(document).ready(function() {
           pushButton.textContent = 'Disable Push Messages';
           isPushEnabled = true;
         })
-        // .catch(function(err) {
-        //   console.log('Error during getSubscription()', err);
-        //   window.Demo.debug.log('Error during getSubscription()', err);
-        // });
+        .catch(function(err) {
+          console.log('Error during getSubscription()', err);
+        });
     });
   }
 
@@ -234,7 +185,6 @@ $(document).ready(function() {
       .then(initialiseState);
     } else {
       console.log('Service workers aren\'t supported in this browser.');
-      window.Demo.debug.log('Service workers aren\'t supported in this browser.');
     }
   });
 });
