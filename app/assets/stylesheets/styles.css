@@ -20,10 +20,11 @@ p{
 }
 /*<---------------------navigation styles ------------------------>*/
 .nav-wrapper{
-  background-color: #757575;
+  background-color: rgba(0, 0, 0, 1);
   font-family: 'Squada One', cursive;
   padding-left: 2%;
   padding-right: 2%;
+  border-bottom: 1px solid #b8b8b8;
 }
 .notification-span{
   font-family: 'Squada One', cursive;
@@ -59,4 +60,7 @@ p{
   padding: 20px;
   padding-top: 5px;
   border-radius: 30px;
+}
+label.table-filter{
+  color:#00FFEE;
 }
