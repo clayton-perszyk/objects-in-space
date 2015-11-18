@@ -83,3 +83,8 @@ label.table-filter{
   height:200px;
   width:auto;
 }
+.title {
+  color:#00EEDF;
+  font-size: 0.5em;
+  margin-right: 2%;
+}
