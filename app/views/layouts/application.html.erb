@@ -7,12 +7,14 @@
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <%= favicon_link_tag(source="asteroid-icon.png") %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="ObjectsInSpace">
+
   <nav>
     <div class="nav-wrapper">
       <a href="#/" class="brand-logo">Objects In Space</a>
