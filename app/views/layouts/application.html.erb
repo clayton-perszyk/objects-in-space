@@ -16,18 +16,31 @@
 <body ng-app="ObjectsInSpace">
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Objects In Space</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse">
-        <i class="material-icons" >menu</i>
-      </a>
-      <div class="right switch">
-        <label><span class="notification-span">Enable NEO notifications:</span>
-          Off
-          <input type="checkbox" class='notifications-checkbox'>
-          <span class="lever"></span>
-          On
-        </label>
-      </div>
+      <a href="#/" class="brand-logo">Objects In Space</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/NEO">NEO Table</a></li>
+        <li class="right switch">
+          <label><span class="notification-span">Enable NEO notifications:</span>
+            Off
+            <input type="checkbox" class='notifications-checkbox'>
+            <span class="lever"></span>
+            On
+          </label>
+        </li>
+      </ul>
+      <ul id="slide-out" class="side-nav">
+        <li><a href="#/NEO">NEO Table</a></li>
+        <li class="right switch">
+          <label><span class="notification-span">Enable NEO notifications:</span>
+            Off
+            <input type="checkbox" class='notifications-checkbox'>
+            <span class="lever"></span>
+            On
+          </label>
+        </li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </nav>
     </div>
   </nav>
   <div ng-view>
