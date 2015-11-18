@@ -43,11 +43,11 @@
     }).then(function(clientList) {
       for (var i = 0; i < clientList.length; i++) {
         var client = clientList[i];
-        if (client.url == '/#/NEO?q=filter' && 'focus' in client)
+        if (client.url == '/#/NEO?q=filtered' && 'focus' in client)
           return client.focus();
       }
       if (clients.openWindow)
-        return clients.openWindow('/#/NEO?q=filter');
+        return clients.openWindow('/#/NEO?q=filtered');
     }));
 
   });
