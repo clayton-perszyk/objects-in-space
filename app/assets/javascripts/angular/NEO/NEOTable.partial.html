@@ -16,7 +16,7 @@
         <tr>
           <th>
             <span ng-click='vm.orderBy("name")'>
-              Name (&amp; Nickname)
+              Nickname
               <i class="material-icons tiny" ng-show='vm.order === "name"'>keyboard_arrow_down</i>
               <i class="material-icons tiny" ng-show='vm.order === "-name"'>keyboard_arrow_up</i>
             </span>
@@ -54,7 +54,7 @@
       <tbody>
         <tr ng-repeat="neo in vm.objects | orderBy: vm.order | catagoryFilter: vm.catagories.size:'sizeCatagory' | catagoryFilter: vm.catagories.distance:'distanceCatagory' | dateFilter: vm.catagories.date">
           <td>
-            <a href="#/NEO/{{neo.id}}">{{neo.name}}</a>
+            <a href="#/NEO/{{neo.id}}">{{neo.nickname}}</a>
           </td>
           <td>
             {{neo.velocity}}

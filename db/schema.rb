@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117194808) do
+ActiveRecord::Schema.define(version: 20151118193902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151117194808) do
     t.string  "sizeCatagory"
     t.boolean "pha"
     t.string  "distanceCatagory"
+    t.string  "nickname"
   end
 
   create_table "subscribed_users", force: :cascade do |t|

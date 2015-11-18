@@ -1,5 +1,6 @@
 <div class="show-wrapper">
-  <h1 class="center">{{vm.asteroid.name}}</h1>
+  <h1 class="center"><span class="title"><i>NASA name:</i></span> {{vm.asteroid.name}}</h1>
+  <h3 class="center"><span class="title"><i>codename:</i></span> {{vm.asteroid.nickname}}</h3>
   <div class="center">
     <div class="row upper-stats">
       <div class="col s4 offset-s2">
@@ -8,20 +9,20 @@
       </div>
       <ul class="col s4">
         <br>
-        <br>  
+        <br>
         <li>Closest Approach Date: {{vm.asteroid.close_approach_date}}</li>
         <br>
         <li>Closest Approach Distance (in lunars): {{vm.asteroid.close_approach_distance}}</li>
         <br>
-        <li>Velocity(in kms per second): {{vm.asteroid.velocity}}</li>
-        <br>
-        <li>Size (in meters): {{vm.asteroid.size}}</li>
+        <li>Velocity (in kms per second): {{vm.asteroid.velocity}}</li>
       </ul>
 
     </div>
     <div class="row lower-stats">
       <ul class="col s4 offset-s2">
-        <li>approximate size of {{vm.asteroid.name}}: {{vm.asteroid.sizeCatagory}}</li>
+        <li>Size (in meters): {{vm.asteroid.size}}</li>
+        <br>
+        <li>relative object size of {{vm.asteroid.name}}: {{vm.asteroid.sizeCatagory}}</li>
         <br>
         <li>Potentially Hazardous Asteroid?: {{vm.asteroid.pha}}</li>
       </ul>
