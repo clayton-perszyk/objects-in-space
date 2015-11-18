@@ -1,9 +1,9 @@
 class NearearthobjectsController < ApplicationController
   before_action :set_nearearthobject, only: [:show, :update, :destroy]
-  
+
 
   def todays_neos
-    @neos = Nearearthobject.where(close_approach_date: DateTime.now.strftime("%Y-%m-%d"))
+    @neos = Nearearthobject.where(close_approach_date: DateTime.now.strftime("%Y-%m-%d").to_s)
     render json: @neos, status: :ok
   end
 
