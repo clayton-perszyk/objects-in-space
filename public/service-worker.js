@@ -12,10 +12,15 @@
         data.forEach(function(item) {
           names.push(item.name);
         });
-        if(names.length >= 3) {
+        if(names.length === 0) {
+          title = "No NEOs Today";
+          body = "You can reset today";
+        } else if(names.length >= 3) {
           title = "There are " + names.length + " NEOs about to hit";
+          body = "Run for the hills";
         } else {
           title = names.join(", ");
+          body = "Are about to hit";
         }
         event.waitUntil(
           self.registration.showNotification(title, {

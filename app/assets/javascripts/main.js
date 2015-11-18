@@ -87,6 +87,7 @@ $(document).ready(function() {
     navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
       serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
         .then(function(subscription) {
+
           // The subscription was successful
           isPushEnabled = true;
           notificationCheckbox.disabled = false;
@@ -141,6 +142,7 @@ $(document).ready(function() {
         .then(function(subscription) {
           // Enable any UI which subscribes / unsubscribes from
           // push messages.
+
           var notificationCheckbox = $('.notifications-checkbox');
           notificationCheckbox.disabled = false;
 
@@ -149,10 +151,7 @@ $(document).ready(function() {
             // to allow the user to enable push
             return;
           }
-          
           notificationCheckbox[0].checked = true;
-          // Keep your server in sync with the latest subscription
-          sendSubscriptionToServer(subscription);
 
           // Set your UI to show they have subscribed for
           // push messages
@@ -170,6 +169,7 @@ $(document).ready(function() {
       if (isPushEnabled) {
         unsubscribe();
       } else {
+
         subscribe();
       }
     });
