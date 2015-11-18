@@ -36,17 +36,17 @@ result = Net::HTTP.get(url)
       elsif neoObject["size"] <= 5000000
         neoObject["sizeCatagory"] = 'lake'
       elsif
-        neoObject["sizeCatagory"] = 'to damn big'
+        neoObject["sizeCatagory"] = 'too damn big'
       end
 
       if neoObject['close_approach_distance'] <= 200
-        neoObject["distanceCatagory"] = "0 - 200"
+        neoObject["distanceCatagory"] = "0 - 50"
       elsif neoObject['close_approach_distance'] <= 400
-        neoObject["distanceCatagory"] = "200 - 400"
+        neoObject["distanceCatagory"] = "500 - 100"
       elsif neoObject['close_approach_distance'] <= 600
-        neoObject["distanceCatagory"] = "400 - 600"
+        neoObject["distanceCatagory"] = "100 - 150"
       else
-        neoObject["distanceCatagory"] = "600+"
+        neoObject["distanceCatagory"] = "150+"
       end
 
       Nearearthobject.create(neoObject)
