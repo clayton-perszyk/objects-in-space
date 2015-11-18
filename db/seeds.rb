@@ -18,7 +18,7 @@ result = Net::HTTP.get(url)
     neoObject['close_approach_date'] = neoArray[0].to_s.split(' ')[0];
     neoArray[1].each do |neo|
       neoObject['name'] = neo["name"]
-      neoObject['close_approach_distance'] = neo["close_approach_data"][0]["miss_distance"]["lunar"].to_i;
+      neoObject["close_approach_distance"] = neo["close_approach_data"][0]["miss_distance"]["lunar"].to_i;
       neoObject['velocity'] = neo['close_approach_data'][0]['relative_velocity']['kilometers_per_second']
       neoObject['size'] =  (neo["estimated_diameter"]["meters"]["estimated_diameter_min"].to_i + neo["estimated_diameter"]["meters"]["estimated_diameter_max"].to_i) / 2
       neoObject['pha'] = neo["is_potentially_hazardous_asteroid"]
@@ -34,19 +34,19 @@ result = Net::HTTP.get(url)
       elsif neoObject["size"] <= 4000
         neoObject["sizeCatagory"] = 'city'
       elsif neoObject["size"] <= 5000000
-        neoObject["sizeCatagory"] = 'lake'
+        neoObject["sizeCatagory"] = 'great lake'
       elsif
-        neoObject["sizeCatagory"] = 'to damn big'
+        neoObject["sizeCatagory"] = 'too damn big'
       end
 
-      if neoObject['close_approach_distance'] <= 200
-        neoObject["distanceCatagory"] = "0 - 200"
-      elsif neoObject['close_approach_distance'] <= 400
-        neoObject["distanceCatagory"] = "200 - 400"
-      elsif neoObject['close_approach_distance'] <= 600
-        neoObject["distanceCatagory"] = "400 - 600"
+      if neoObject["close_approach_distance"] <= 50
+        neoObject["distanceCatagory"] = "0 - 50"
+      elsif neoObject['close_approach_distance'] <= 100
+        neoObject["distanceCatagory"] = "50 - 100"
+      elsif neoObject['close_approach_distance'] <= 150
+        neoObject["distanceCatagory"] = "100 - 150"
       else
-        neoObject["distanceCatagory"] = "600+"
+        neoObject["distanceCatagory"] = "150+"
       end
 
       Nearearthobject.create(neoObject)

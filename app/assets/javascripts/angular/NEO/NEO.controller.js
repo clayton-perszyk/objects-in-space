@@ -15,14 +15,14 @@
         'football field': false,
         'skyscraper': false,
         'city': false,
-        'lake': false,
-        'to damn big': false,
+        'great lake': false,
+        'too damn big': false,
       },
       distance: {
-        '0 - 200': false,
-        '200 - 400': false,
-        '400 - 600': false,
-        '600+': false
+        '0 - 50': false,
+        '50 - 100': false,
+        '100 - 150': false,
+        '150+': false
       },
       date: {
         'past': false,
