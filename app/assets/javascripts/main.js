@@ -4,7 +4,6 @@ $(document).ready(function() {
   var API_KEY = window.GoogleSamples.Config.gcmAPIKey;
   var GCM_ENDPOINT = 'https://android.googleapis.com/gcm/send';
 
-  var curlCommandDiv = document.querySelector('.js-curl-command');
   var isPushEnabled = false;
 
 
@@ -43,9 +42,10 @@ $(document).ready(function() {
   }
 
   function unsubscribe() {
-    var pushButton = document.querySelector('.js-push-button');
-    pushButton.disabled = true;
-    curlCommandDiv.textContent = '';
+    var notificationCheckbox = $('.notifications-checkbox');
+
+
+    notificationCheckbox.disabled = true;
 
     navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
       // To unsubscribe from push messaging, you need get the
@@ -57,19 +57,17 @@ $(document).ready(function() {
             // No subscription object, so set the state
             // to allow the user to subscribe to push
             isPushEnabled = false;
-            pushButton.disabled = false;
-            pushButton.textContent = 'Enable Push Messages';
+            notificationCheckbox.disabled = false;
             return;
           }
 
           // We have a subcription, so call unsubscribe on it
           pushSubscription.unsubscribe().then(function(successful) {
-            pushButton.disabled = false;
-            pushButton.textContent = 'Enable Push Messages';
+            notificationCheckbox.disabled = false;
             isPushEnabled = false;
           }).catch(function(e) {
             console.log('Unsubscription error: ', e);
-            pushButton.disabled = false;
+            notificationCheckbox.disabled = false;
           });
         }).catch(function(e) {
           console.log('Error thrown while unsubscribing from ' +
@@ -82,8 +80,8 @@ $(document).ready(function() {
   function subscribe() {
     // Disable the button so it can't be changed while
     // we process the permission request
-    var pushButton = document.querySelector('.js-push-button');
-    pushButton.disabled = true;
+    var notificationCheckbox = $('.notifications-checkbox');
+    notificationCheckbox.disabled = true;
 
 
     navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
@@ -91,8 +89,7 @@ $(document).ready(function() {
         .then(function(subscription) {
           // The subscription was successful
           isPushEnabled = true;
-          pushButton.textContent = 'Disable Push Messages';
-          pushButton.disabled = false;
+          notificationCheckbox.disabled = false;
 
           return sendSubscriptionToServer(subscription);
         })
@@ -103,14 +100,13 @@ $(document).ready(function() {
             // to manually change the notification permission to
             // subscribe to push messages
             console.log('Permission for Notifications was denied');
-            pushButton.disabled = true;
+            notificationCheckbox.disabled = true;
           } else {
             // A problem occurred with the subscription, this can
             // often be down to an issue or lack of the gcm_sender_id
             // and / or gcm_user_visible_only
             console.log('Unable to subscribe to push.', e);
-            pushButton.disabled = false;
-            pushButton.textContent = 'Enable Push Messages';
+            notificationCheckbox.disabled = false;
           }
         });
     });
@@ -145,21 +141,21 @@ $(document).ready(function() {
         .then(function(subscription) {
           // Enable any UI which subscribes / unsubscribes from
           // push messages.
-          var pushButton = document.querySelector('.js-push-button');
-          pushButton.disabled = false;
+          var notificationCheckbox = $('.notifications-checkbox');
+          notificationCheckbox.disabled = false;
 
           if (!subscription) {
             // We aren’t subscribed to push, so set UI
             // to allow the user to enable push
             return;
           }
-
+          
+          notificationCheckbox[0].checked = true;
           // Keep your server in sync with the latest subscription
           sendSubscriptionToServer(subscription);
 
           // Set your UI to show they have subscribed for
           // push messages
-          pushButton.textContent = 'Disable Push Messages';
           isPushEnabled = true;
         })
         .catch(function(err) {
@@ -169,8 +165,8 @@ $(document).ready(function() {
   }
 
   window.addEventListener('load', function() {
-    var pushButton = document.querySelector('.js-push-button');
-    pushButton.addEventListener('click', function() {
+    var notificationCheckbox = $('.notifications-checkbox');
+    notificationCheckbox.click(function() {
       if (isPushEnabled) {
         unsubscribe();
       } else {
