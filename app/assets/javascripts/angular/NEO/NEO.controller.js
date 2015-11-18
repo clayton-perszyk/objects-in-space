@@ -15,7 +15,7 @@
         'football field': false,
         'skyscraper': false,
         'city': false,
-        'lake': false,
+        'great lake': false,
         'too damn big': false,
       },
       distance: {

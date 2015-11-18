@@ -34,16 +34,16 @@ result = Net::HTTP.get(url)
       elsif neoObject["size"] <= 4000
         neoObject["sizeCatagory"] = 'city'
       elsif neoObject["size"] <= 5000000
-        neoObject["sizeCatagory"] = 'lake'
+        neoObject["sizeCatagory"] = 'great lake'
       elsif
         neoObject["sizeCatagory"] = 'too damn big'
       end
 
-      if neoObject['close_approach_distance'] <= 200
+      if neoObject['close_approach_distance'] <= 50
         neoObject["distanceCatagory"] = "0 - 50"
-      elsif neoObject['close_approach_distance'] <= 400
-        neoObject["distanceCatagory"] = "500 - 100"
-      elsif neoObject['close_approach_distance'] <= 600
+      elsif neoObject['close_approach_distance'] <= 100
+        neoObject["distanceCatagory"] = "50 - 100"
+      elsif neoObject['close_approach_distance'] <= 150
         neoObject["distanceCatagory"] = "100 - 150"
       else
         neoObject["distanceCatagory"] = "150+"
