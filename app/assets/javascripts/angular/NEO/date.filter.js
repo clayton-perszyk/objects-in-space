@@ -19,7 +19,7 @@
         return items;
       }
       items.forEach(function(item) {
-        if(moment(item.close_approach_date).fromNow().indexOf('ago') !== -1) {
+        if(moment(item.close_approach_date).fromNow().indexOf('ago') != -1) {
           isPast = true;
         }
         if(moment(item.close_approach_date).fromNow().indexOf('ago') === -1 && item.close_approach_date !== today.format('YYYY-MM-DD')) {

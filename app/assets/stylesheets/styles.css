@@ -6,6 +6,11 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+.hoverspan:hover {
+  cursor: pointer;
+  color: green;
+}
+
 body{
 
 }
