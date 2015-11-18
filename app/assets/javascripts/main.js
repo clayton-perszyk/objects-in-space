@@ -87,7 +87,6 @@ $(document).ready(function() {
     navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
       serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
         .then(function(subscription) {
-          console.log(serviceWorkerRegistration.pushManager.permissionState());
 
           // The subscription was successful
           isPushEnabled = true;
@@ -170,6 +169,7 @@ $(document).ready(function() {
       if (isPushEnabled) {
         unsubscribe();
       } else {
+
         subscribe();
       }
     });
