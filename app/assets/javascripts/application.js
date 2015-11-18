@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require momentjs.min.js
 //= require angular/lib/angular.min.js
 //= require angular/lib/angular_route.js
 //= require angular/objectsInSpace.app.js
