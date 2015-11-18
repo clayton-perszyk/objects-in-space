@@ -14,7 +14,7 @@
         });
         if(names.length === 0) {
           title = "No NEOs Today";
-          body = "You can reset today";
+          body = "Wait until tomorrow";
         } else if(names.length >= 3) {
           title = "There are " + names.length + " NEOs about to hit";
           body = "Run for the hills";
