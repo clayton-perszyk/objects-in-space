@@ -18,7 +18,7 @@ result = Net::HTTP.get(url)
     neoObject['close_approach_date'] = neoArray[0].to_s.split(' ')[0];
     neoArray[1].each do |neo|
       neoObject['name'] = neo["name"]
-      neoObject['close_approach_distance'] = neo["close_approach_data"][0]["miss_distance"]["lunar"].to_i;
+      neoObject["close_approach_distance"] = neo["close_approach_data"][0]["miss_distance"]["lunar"].to_i;
       neoObject['velocity'] = neo['close_approach_data'][0]['relative_velocity']['kilometers_per_second']
       neoObject['size'] =  (neo["estimated_diameter"]["meters"]["estimated_diameter_min"].to_i + neo["estimated_diameter"]["meters"]["estimated_diameter_max"].to_i) / 2
       neoObject['pha'] = neo["is_potentially_hazardous_asteroid"]
@@ -39,7 +39,7 @@ result = Net::HTTP.get(url)
         neoObject["sizeCatagory"] = 'too damn big'
       end
 
-      if neoObject['close_approach_distance'] <= 50
+      if neoObject["close_approach_distance"] <= 50
         neoObject["distanceCatagory"] = "0 - 50"
       elsif neoObject['close_approach_distance'] <= 100
         neoObject["distanceCatagory"] = "50 - 100"
