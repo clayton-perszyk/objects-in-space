@@ -10,10 +10,10 @@ require 'net/http'
 key = "FDF8cJsgpVwVozoyQ4GZL0Pe8CLaG6heSPW8JeoV"
 url = URI.parse("https://api.nasa.gov/neo/rest/v1/feed?start_date=2016-01-01&api_key=FDF8cJsgpVwVozoyQ4GZL0Pe8CLaG6heSPW8JeoV");
 result = Net::HTTP.get(url)
-while(URI.parse(JSON.parse(result)['links']['next'].chomp('DEMO_KEY') + key)) do
-  url = URI.parse(JSON.parse(result)['links']['next'].chomp('DEMO_KEY') + key)
-  puts(url)
+while(URI.parse(JSON.parse(result)['links']['next'])) do
+  url = URI.parse(JSON.parse(result)['links']['next'])
   result = Net::HTTP.get(url)
+
   JSON.parse(result)["near_earth_objects"].each do |neoArray|
     neoObject = {}
     neoObject['close_approach_date'] = neoArray[0].to_s.split(' ')[0];
