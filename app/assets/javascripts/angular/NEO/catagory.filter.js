@@ -6,8 +6,11 @@
   function catagoryFilter() {
 
     return function(items, types, catagoryTitle) {
+      if(!items) {
+        return items;
+      }
       var filtered = [];
-      var catagories = _.keys(types);
+      var catagories = Object.keys(types);
       var allfalse = true;
       if(items) {
         for(var type in types) {
