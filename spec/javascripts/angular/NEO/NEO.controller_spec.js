@@ -1,13 +1,12 @@
 // require application.js
 describe("NEO controller", function() {
 
-  var controller, routeParams, httpBackend, $http;
+  var controller, $httpBackend;
   beforeEach(function() {
     module('ObjectsInSpace')
     inject(function($injector) {
       controller = $injector.get('$controller')('NEOController');
-      httpBackend = $injector.get("$httpBackend");
-      $http = $injector.get('$http');
+      $httpBackend = $injector.get("$httpBackend");
     });
   });
 
@@ -99,11 +98,11 @@ describe("NEO controller", function() {
           nickname: null
         }
       ];
-      httpBackend.expectGET('/nearearthobjects').respond(200, sampleData);
-      httpBackend.flush();
+      $httpBackend.expectGET('/nearearthobjects').respond(200, sampleData);
+      $httpBackend.flush();
       expect(controller.objects).toEqual(sampleData);
-      httpBackend.verifyNoOutstandingExpectation();
-      httpBackend.verifyNoOutstandingRequest();
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
     });
   });
 });

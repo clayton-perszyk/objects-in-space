@@ -1,7 +1,7 @@
 // require application.js
 
 describe('date filter', function() {
-  var dateFilter, $filter, catagories, sampleData;
+  var dateFilter, $filter, date, sampleData;
 
   beforeEach(function() {
     module('ObjectsInSpace');
