@@ -2,6 +2,20 @@
 
 A way to bring awareness to near earth objects and there threat to earth. Their are thousands of near earth objects and Objects in Space will keep you notified when they get close.
 
+https://objects-in-space.herokuapp.com/
+
+## Getting started
+
+1. Install all gems
+
+    $ bundle install
+1. start Rails server
+
+    $ rails s
+1. Site is hosted on http://localhost:3000
+
+If you don't have Ruby install follow https://www.ruby-lang.org/en/documentation/installation/
+
 ## The Team
 - Clayton Perszyk https://github.com/clayton-perszyk
 - Donald Bruanis https://github.com/donb1991
