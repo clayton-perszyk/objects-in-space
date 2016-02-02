@@ -6,15 +6,31 @@ https://objects-in-space.herokuapp.com/
 
 ## Getting started
 
-1. Install all gems
+If you don't have Ruby install follow https://www.ruby-lang.org/en/documentation/installation/
+
+You will also need to install http://postgresapp.com/
+
+Install all gems
 
     $ bundle install
-1. start Rails server
+    
+Create Database and have to seed data. If you don't inculde RAILS_ENV="development"  it take a long time because it is getting all near earth object till around 2050.
+
+    $ rake db:setup RAILS_ENV="development"
+    
+Create Nickname for all Near earth objects
+
+    $ rake fake_names
+
+start Rails server
 
     $ rails s
-1. Site is hosted on http://localhost:3000
 
-If you don't have Ruby install follow https://www.ruby-lang.org/en/documentation/installation/
+Site is hosted on http://localhost:3000
+
+To run jasmine test 
+
+    $ teaspoon
 
 ## The Team
 - Clayton Perszyk https://github.com/clayton-perszyk
