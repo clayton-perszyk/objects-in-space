@@ -75,7 +75,6 @@ describe('date filter', function() {
 
   it('Should return only past objects if only the date.past is true', function() {
     date.past = true;
-
     expect(dateFilter(sampleData, date).length).toBe(1);
   });
 

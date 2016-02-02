@@ -5,7 +5,7 @@
 
   function dateFilter() {
     return function(items, catagories) {
-      var today = moment();
+      var today = moment().format('YYYY-MM-DD');
       var isPast = false;
       var isFuture = false;
       var filtered = [];
@@ -22,15 +22,15 @@
         isPast = false;
         isFuture = false;
 
-        if(moment(item.close_approach_date) < today) {
+        if(moment(item.close_approach_date).isBefore(today)) {
           isPast = true;
         }
 
-        if(moment(item.close_approach_date) > today && item.close_approach_date !== today.format('YYYY-MM-DD')) {
+        if(moment(item.close_approach_date).isAfter(today)) {
           isFuture = true;
         }
 
-        if(catagories.today && item.close_approach_date === today.format('YYYY-MM-DD')) {
+        if(catagories.today && moment(item.close_approach_date).isSame(today)) {
           filtered.push(item);
         } else if(catagories.past && isPast) {
           filtered.push(item);
