@@ -1,7 +1,7 @@
 // require application.js
 
 describe('date filter', function() {
-  var dateFilter, $filter, catagories sampleData;
+  var dateFilter, $filter, catagories, sampleData;
 
   beforeEach(function() {
     module('ObjectsInSpace');
@@ -9,17 +9,14 @@ describe('date filter', function() {
       $filter = $injector.get('$filter');
       dateFilter = $filter('dateFilter');
     });
-
-    var today = new Date;
-    var todayString = today.getFullYear() + '-' + ('0' +(today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getMonth()).slice(-2);
-    catagories = {
-      date: {
+    var today = moment().format('YYYY-MM-DD');
+    date = {
         'past': false,
         'today': false,
         'future': false
       }
-    };
-    var sampleData = [
+
+    sampleData = [
             {
               id: 1,
               name: "(2013 UC1)",
@@ -47,7 +44,7 @@ describe('date filter', function() {
             {
               id: 3,
               name: "(2015 TN145)",
-              close_approach_date: todayString,
+              close_approach_date: today,
               close_approach_distance: 21,
               velocity: 7,
               size: 49,
@@ -67,29 +64,30 @@ describe('date filter', function() {
     expect(dateFilter(undefined, undefined)).toBeUndefined();
   });
 
-  it('Should return all objects if all data catagories is false', function() {
-    expect(dataFilter(sampleData, catagories).length).toBe(3);
+  it('Should return all objects if all date values are false', function() {
+    expect(dateFilter(sampleData, date).length).toBe(3);
   });
 
-  it('Should return only future objects if just the future data catagories is true', function() {
-    catagories.future = true;
-    expect(dataFilter(sampleData, catagories).length).toBe(1);
+  it('Should return only future objects if just the date.future is true', function() {
+    date.future = true;
+    expect(dateFilter(sampleData, date).length).toBe(1);
   });
 
-  it('Should return only past objects if only the past data catagories is true', function() {
-    catagories.past = true;
-    expect(dataFilter(sampleData, catagories).length).toBe(1);
+  it('Should return only past objects if only the date.past is true', function() {
+    date.past = true;
+
+    expect(dateFilter(sampleData, date).length).toBe(1);
   });
 
-  it('Should return only today objects if only the today data catagories is true', function() {
-    catagories.today = true;
-    expect(dataFilter(sampleData, catagories).length).toBe(1);
+  it('Should return only today objects if only the date.today is true', function() {
+    date.today = true;
+    expect(dateFilter(sampleData, date).length).toBe(1);
   });
 
-  it('Should return both future and past if both the future and past catagories is true', function() {
-    catagories.past = true;
-    catagories.future = true;
-    expect(dataFilter(sampleData, catagories).length).toBe(2);
+  it('Should return both future and past objects if both the date.future and date.past is true', function() {
+    date.past = true;
+    date.future = true;
+    expect(dateFilter(sampleData, date).length).toBe(2);
   });
 
 });
