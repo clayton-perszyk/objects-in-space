@@ -6,15 +6,21 @@ https://objects-in-space.herokuapp.com/
 
 ## Getting started
 
-1. Install all gems
+Install all gems
 
     $ bundle install
-1. start Rails server
+
+start Rails server
 
     $ rails s
-1. Site is hosted on http://localhost:3000
+
+Site is hosted on http://localhost:3000
 
 If you don't have Ruby install follow https://www.ruby-lang.org/en/documentation/installation/
+
+To run jasmine test 
+
+    $ teaspoon
 
 ## The Team
 - Clayton Perszyk https://github.com/clayton-perszyk
