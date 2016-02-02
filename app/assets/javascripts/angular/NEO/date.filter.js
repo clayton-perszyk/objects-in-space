@@ -13,7 +13,6 @@
       for(var catagory in catagories) {
         if(catagories[catagory]) {
           allFalse = false;
-          console.log('test');
         }
       }
       if (allFalse) {
