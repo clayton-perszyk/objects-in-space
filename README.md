@@ -14,9 +14,9 @@ Install all gems
 
     $ bundle install
     
-Create Database and have to seed data. This can take a long time there is a lot of Near earth objects.
+Create Database and have to seed data. If you don't inculde RAILS_ENV="development"  it take a long time because it is getting all near earth object till around 2050.
 
-    $ rake db:setup
+    $ rake db:setup RAILS_ENV="development"
     
 Create Nickname for all Near earth objects
 
